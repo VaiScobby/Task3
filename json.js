@@ -1,11 +1,20 @@
-var obj1 = {name: "Person 1", age: 5};
-var obj2 = {age: 5, name: "person 1"};
+let obj1 = {name:"person1", age:5};
+let obj2 = {age:5, name:"person1"};
 
-var obj1String = JSON.stringify(obj1);
-var obj2String = JSON.stringify(obj2);
+var assumption=true;
 
-if (obj1String === obj2String) {
-    console.log("Objects do not have the same properties.");
-} else {
-    console.log("Objects have the same properties.");
+if(Object.keys(obj1).length==Object.keys(obj2).length){
+    for(let key in obj1) { 
+        if(obj1[key] == obj2[key]) {
+            continue;
+        }
+        else {
+            assumption=false;
+            break;
+        }
+    }
 }
+else {
+    assumption=false;
+}
+console.log(assumption);
